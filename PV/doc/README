@@ -1,0 +1,74 @@
+#==========================================================================================================
+# DV logo/boot/recovery/droidboot Make Steps:
+#++++++++++++++++++++++++++++++++++++++++++++
+#                                                                                           
+#                                       ####################################################################           
+#                                                  INPUT      #       MIDDLE FILE        #        OUTPUT   #                  
+#                                       ####################################################################           
+#                                       +------------------+     +--------------------+      +-------------+
+#                                       |          logo.bmp|     |     signed_logo.img|      |     logo.img|       
+#                         1.KERNEL \    +------------------+     +--------------------+      +-------------+
+#                        /2.CMDLINE|>>>>|     boot.unsigned|>>>>>|     signed_boot.bin|>>>>>>|     boot.bin|
+#          boot_cmdline -|         |    | recovery.unsigned|  ^  | signed_recovery.img|  ^   | recovery.img|
+#      recovery_cmdline -|         |    |droidboot.unsigned| /|\ |signed_droidboot.img| /|\  |droidboot.img|
+#     droidboot_cmdline -/         |    +------------------+  |  +--------------------+  |   +-------------+-------+
+#                                  |                          |                          |   |droidboot.img.POS.bin|
+#                        /3.RAMDISK/                          |                          |   +---------------------+
+#  ramdisk-recovery.img -|                                    |                          |
+#  ramdisk-recovery.img -|                                    |                          |
+# ramdisk-droidboot.img -/            ________________________/                          |
+#                                    /                                                   |
+#                                   /                                                    |
+#                          +++++++++                                                     | 
+#                          +  ISU  +                                                     |
+#                          +++++++++ +----------------------------------------------+    |
+#                                    | 1= ISU - Intel Signing Utility               |    |
+#                                    | 2= SRC - /device/intel/intel_signing_utility |    |
+#                                    | 3= KEY - "./key/key.pem"                     |    |
+#                                    +----------------------------------------------+    |
+#                                                                                        |
+#                                    ____________________________________________________/
+#                                   /
+#                 ++++++++++++++++++
+#                 + xfstk-stitcher +
+#                 ++++++++++++++++++ +----------------------------------------------+
+#                                    | 1= x86 firmware software tool kit            |
+#                                    | 2= SRC - /device/intel/xfstk-stitcher        |
+#                                    | 3= CONFIG & XML...                           |
+#                                    +----------------------------------------------+
+# 
+# NOTE: 
+# 	This tool(cmdline&configs) is as same as it in "/lfstk/borqs-x86-pv"!!!
+# 	
+#==========================================================================================================
+
+                   +-----------------------------------------------------------------------------------+
+                   | Intel Soc Images(logo/boot/recovery/droidboot) Signing Tool:                      |
+                   |=============================================================                      |
+                   |                                                                                   |
+                   |   1.Put unsigned images to directory "./input";                                   |
+                   |                                                                                   |
+                   |     input/                                                                        |
+                   |     ├── boot.unsigned                                                             |
+                   |     ├── droidboot.unsigned                                                        |
+                   |     ├── logo.bmp                                                                  |
+                   |     └── recovery.unsigned                                                         |
+                   |                                                                                   |
+                   |   2.Exec the "sign.sh" script to sign the images in "./input";                    |
+                   |                                                                                   |
+                   |     # ./sign.sh                                                                   |
+                   |                                                                                   |
+                   |   3.After Step2, you can get the signed&stiched images in directory "./output";   |
+                   |                                                                                   |
+                   |     output/                                                                       |
+                   |     ├── boot.bin                                                                  |
+                   |     ├── droidboot.img                                                             |
+                   |     ├── droidboot.img.POS.bin                                                     |
+                   |     ├── logo.img                                                                  |
+                   |     └── recovery.img                                                              |
+                   |                                                                                   |
+                   |   4.You can clean the middle and final output files use "clean.sh" scripts;       |
+                   |                                                                                   |
+                   |     # ./clean.sh                                                                  |
+                   |                                                                                   |
+                   +-----------------------------------------------------------------------------------+

@@ -1,0 +1,23 @@
+<platform PlatformName="penwell" Step="D1" UMGFWTKVersion="0.1.0">
+<osip_header>
+<signature>609439524</signature>
+<intel_reserved>0</intel_reserved>
+<header_minor_revision>0</header_minor_revision>
+<header_major_revision>1</header_major_revision>
+<number_of_images>1</number_of_images>
+<os_image>
+<minor_revision>0</minor_revision>
+<major_revision>0</major_revision>
+<destination_pointer>17825792</destination_pointer>
+<handoff_pointer>17829888</handoff_pointer>
+<intel_reserved>0</intel_reserved>
+<image_attributes>12</image_attributes>
+<image_filepath>./middle/signed_recovery.img</image_filepath>
+<is_image_signed>0</is_image_signed>
+<starting_LBA_in_512_byte_blocks>0</starting_LBA_in_512_byte_blocks>
+<is_partition>0</is_partition>
+<partition_status>0</partition_status>
+<partition_type>0</partition_type>
+</os_image>
+</osip_header>
+</platform>

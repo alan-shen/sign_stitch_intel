@@ -1,0 +1,10 @@
+
+You need get images in the list below:
+
+	[boot]     boot.unsigned
+	[fastboot] droidboot.unsigned
+	[recovery] recovery.unsigned
+	[logo]     logo.bmp
+
+Get them from "CM/Share" or "Andoid Build Out".
+

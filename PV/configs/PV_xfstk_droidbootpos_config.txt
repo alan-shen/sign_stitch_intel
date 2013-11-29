@@ -1,0 +1,4 @@
+'----- Output Settings -----
+PlatformType = MFDD0
+ImageType = OSUSB
+ImageName = ./output/droidboot.img.POS.bin

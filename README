@@ -1,0 +1,26 @@
+.....................................................................
+Image Attributes(xfstk-stitcher use, in **.xml)
+...............................................
+
+0x00 = Signed OS Kernel Image
+0x01 = Unsigned OS Kernel Image
+0x02 = Signed Root File System Image
+0x03 = Unsigned Root File System Image
+0x04 = Signed Splash Screen Bitmap Image
+0x05 = Unsigned Splash Screen Bitmap Image
+0x06 = Signed “Compromised or Unsigned Kernel” Bitmap Image
+0x07 = Unsigned “Compromised or Unsigned Kernel” Bitmap Image
+0x08 = Signed 2nd Stage IAFW Image
+0x09 = Unsigned 2nd Stage IAFW Image
+0x0A = Signed COS Kernel Image
+0x0B = Unsigned COS Kernel Image
+0x0C = Signed FOTAOS Kernel Image
+0x0D = Unsigned FOTAOS Kernel Image
+0x0E = Signed POS Kernel Image
+0x0F = Unsigned POS Kernel Image
+0x10 = Signed POS&  COS Kernel Image
+0x11 = Unsigned POS&  COS Kernel Image
+0x12-0xEF    =    Intel RSVD
+0xF0-0xFF = Rsvd for OEM use
+
+.....................................................................

@@ -1,0 +1,69 @@
+' Penwell D0 Example Config file
+' This file provides stitching settings.
+'-------- Settings Section
+'validValues = MSTN,MFDA0,MFDB0,MFDC0,MFDD0,CLVA0,TNGA0
+PlatformType = MFDD0
+ImageType = OSUSB
+'ImageName is the output filename 
+ImageName = ./output/OUTPUTFILE_ABCD
+'
+'-------- Files Section
+'SCU uCode = ../../../../FW_Components/SCURuntime.bin
+'Punit uCode = ../../../../FW_Components/PNWMicrocode.bin
+'x86 FW Boot = ../../../../FW_Components/IA32FW.bin
+'Spectra-FTL = ../../../../FW_Components/IA32FWSupp.bin
+'Validation Hooks = ../../../../FW_Components/OEMHooks.bin
+
+'-------- These are required if SignDnX is invoked
+'DnxFile_ToSign = ./FW_Components/dnx_file.bin
+'DnxFile_Signed = ./signed_dnx_output_file.bin
+
+'-------- Penwell C0 Required Keys: Key selection is based on SMIP entries
+'-------- Index reference
+'0: SMIP, primary chaabi fw
+'1: SMIP, SCU + Punit
+'2: IA fw, security ext fw, OS
+'3: IA fw, security ext fw, OS
+'4: IA fw, security ext fw, OS
+'--------
+Public Key0 = ../../../xfstk-stitcher/keys/C0_0_public.key
+Private Key0 = ../../../xfstk-stitcher/keys/C0_0_private.key
+Public Key1 = ../../../xfstk-stitcher/keys/CRAK_1_public.key
+Private Key1 = ../../../xfstk-stitcher/keys/C0_234_public.key
+Public Key2 = ../../../xfstk-stitcher/keys/C0_234_public.key
+Private Key2 = ../../../xfstk-stitcher/keys/C0_234_private.key
+Public Key3 = ../../../xfstk-stitcher/keys/C0_234_public.key
+Private Key3 = ../../../xfstk-stitcher/keys/C0_234_private.key
+Public Key4 = ../../../xfstk-stitcher/keys/C0_234_public.key
+Private Key4 = ../../../xfstk-stitcher/keys/C0_234_private.key
+
+'------- Signed FW Inputs to generate final IFWI  :  -G
+'Intel Signed FW = ../../../../FW_Components/ScuPunit_Signed.bin
+'SIGNED_MIP_BIN = ../../../../FW_Components/Signed_MIP.bin
+
+'------- If there is no Video Encode/Decode Firmware (VED FW), comment out VEDFW:
+'SIGNED_VED_FW = ../../../../FW_Components/Signed_MTX.bin
+'UNSIGNED_VED_FW = ../../../../FW_Components/MTX.bin
+
+'        If there is no patch,comment out SIGNED_PATCH_BIN
+'        If no Parameter block, comment out Patch_Parameter.
+'SIGNED_PATCH_BIN = ../../../../FW_Components/Signed_SCU_ROM_PATCH_C0.02_CRAK.bin
+'Patch_Parameter = ../../../../FW_Components/patch_param.bin
+
+'------- Unsigned Outputs (to be sent to signing server) : -M, -P
+'MIP_BIN = ./MIP.bin
+
+'    Patching Related
+'         UPATCH_BIN is the raw SCU ROM patch input to -P
+'UPATCH_BIN = ./FW_Components/unsigned_scu_patch.bin
+'         UPATCH_OUT is the unsigned Patch with patch header and 
+'         param block (output of -P); this is sent to the server
+'UPATCH_OUT = ./unsigned_patch.bin
+
+'------- Security Firmware
+'ICache_Image = ../../../../FW_Components/Signed_iCache.bin
+'Resident_Image = ../../../../FW_Components/Signed_Resident.bin
+'Extended_FW = ../../../../FW_Components/Signed_Extapp.bin
+
+'-------- end of Files Section
+' End of file
